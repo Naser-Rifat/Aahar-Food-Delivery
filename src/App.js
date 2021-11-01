@@ -15,6 +15,8 @@ import FoodDetails from './Pages/FoodDetails/FoodDetails';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Orders from './Pages/Orders/Orders';
 import NotFound from './Pages/NotFound/NotFound';
+import AddFoodItem from './Pages/AddFoodItem/AddFoodItem';
+import ManageAllorders from './Pages/ManageAllOrders/ManageAllorders';
 
 
 function App() {
@@ -35,11 +37,17 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
+          <PrivateRoute path="/addfooditem">
+            <AddFoodItem></AddFoodItem>
+          </PrivateRoute>
           <PrivateRoute path="/fooddetails/:id">
             <FoodDetails></FoodDetails>
           </PrivateRoute>
           <PrivateRoute path="/orders">
             <Orders></Orders>
+          </PrivateRoute>
+          <PrivateRoute path="/manageallorders">
+            <ManageAllorders></ManageAllorders>
           </PrivateRoute>
           <Router path="*">
             <NotFound></NotFound>

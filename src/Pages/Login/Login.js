@@ -24,12 +24,11 @@ const Login = () => {
     return (
         <div className="my-60 text-center  mx-auto">
 
-            <h1 className="text-center">Sign inWith Google</h1>
+            <h1 className="text-center my-2">Sign In With Google</h1>
 
             <GoogleButton label="Sign In" className=" mx-auto"
                 onClick={handlegoogleSignIn}
             />
-
 
         </div>
     );

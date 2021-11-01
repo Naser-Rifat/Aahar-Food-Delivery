@@ -22,6 +22,12 @@ const Header = () => {
                         user?.email && <Nav.Link as={Link} className="disabled:opacity-50 text-dark font-bold hover:bg-blue-200 mx-1 rounded" to="/orders">My Orders</Nav.Link>
                     }
                     {
+                        user?.email && <Nav.Link as={Link} className="disabled:opacity-50 text-dark font-bold hover:bg-blue-200 mx-1 rounded" to="/addfooditem">Add Food Item</Nav.Link>
+                    }
+                    {
+                        user?.email && <Nav.Link as={Link} className="disabled:opacity-50 text-dark font-bold hover:bg-blue-200 mx-1 rounded" to="/manageallorders">Manage All Orders</Nav.Link>
+                    }
+                    {
                         user?.email ? <Button onClick={logOut} className="btn btn-warning border mr-2">Logout</Button> :
                             <Nav.Link as={HashLink} className="disabled:opacity-50 text-dark font-bold hover:bg-blue-200 mx-1 rounded" to="/login">Login</Nav.Link>
                     }

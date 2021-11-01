@@ -1,27 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const FoodDetails = () => {
+    const { user } = useAuth();
     const { id } = useParams();
     const [item, setItem] = useState({});
     console.log(item);
 
     useEffect(() => {
-        fetch(`https://macabre-skull-17452.herokuapp.com/items/${id}`)
+        fetch(`http://localhost:5000/items/${id}`)
             .then(res => res.json())
             .then(data => setItem(data))
     }, [])
 
     const handleOrders = () => {
+        const updateItem = {
+            email: user?.email,
+            username: user?.displayName,
+            itemname: item.itemname,
+            description: item.description,
+            img: item.img,
+            status: "pending"
+        }
 
-        fetch('https://macabre-skull-17452.herokuapp.com/orders', {
+
+        fetch('http://localhost:5000/orders', {
 
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(item)
+            body: JSON.stringify(updateItem)
         }
 
         )
@@ -40,7 +51,7 @@ const FoodDetails = () => {
         <div className="d-flex justify-content">
             <div className="w-50 mx-auto    ">
                 <img className="" src={item.img} alt="" />
-                <h1>{item.name}</h1>
+                <h1>{item.itemname}</h1>
                 <h3 className="w-75 text-justify">{item.description}</h3>
                 <button onClick={handleOrders} className="btn btn-primary">
                     Add to cart </button>
