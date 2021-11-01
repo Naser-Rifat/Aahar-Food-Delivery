@@ -14,6 +14,7 @@ import Login from './Pages/Login/Login';
 import FoodDetails from './Pages/FoodDetails/FoodDetails';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Orders from './Pages/Orders/Orders';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
           <PrivateRoute path="/orders">
             <Orders></Orders>
           </PrivateRoute>
+          <Router path="*">
+            <NotFound></NotFound>
+          </Router>
         </Switch>
         <Footer></Footer>
       </Router>
