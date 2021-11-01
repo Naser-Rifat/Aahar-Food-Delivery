@@ -7,7 +7,7 @@ const FoodBlog = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foodblogs')
+        fetch('https://macabre-skull-17452.herokuapp.com/foodblogs')
             .then(res => res.json())
             .then(data => setBlogs(data))
             .finally(() => setIsloading(false))

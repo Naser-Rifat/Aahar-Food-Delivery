@@ -19,7 +19,7 @@ const FoodDetails = () => {
     console.log(item);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/items/${id}`)
+        fetch(`https://macabre-skull-17452.herokuapp.com/items/${id}`)
             .then(res => res.json())
             .then(data => setItem(data))
             .finally(() => setIsloading(false))
@@ -48,7 +48,7 @@ const FoodDetails = () => {
         }
 
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://macabre-skull-17452.herokuapp.com/orders', {
 
             method: 'POST',
             headers: {

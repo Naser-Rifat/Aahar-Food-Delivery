@@ -7,7 +7,7 @@ const ProcessOfService = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/getservice')
+        fetch('https://macabre-skull-17452.herokuapp.com/getservice')
             .then(res => res.json())
             .then(data => setItems(data))
             .finally(() => setIsloading(false))

@@ -10,7 +10,7 @@ const ManageAllorders = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://macabre-skull-17452.herokuapp.com/orders`)
             .then(res => res.json())
             .then(data => setAllOrder(data))
             .finally(() => setIsloading(false))
@@ -22,7 +22,7 @@ const ManageAllorders = () => {
     const handleDelete = (id) => {
         const procced = window.confirm("Are you sure? You want to Delete?")
         if (procced) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://macabre-skull-17452.herokuapp.com/orders/${id}`, {
                 method: "DELETE",
             })
                 .then(res => res.json())
@@ -57,7 +57,7 @@ const ManageAllorders = () => {
         }
 
 
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://macabre-skull-17452.herokuapp.com/orders/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': "application/json"

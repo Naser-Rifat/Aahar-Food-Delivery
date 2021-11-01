@@ -26,7 +26,7 @@ const AddFoodItem = () => {
         const addItems = { price, email, username, itemname, description, img };
         console.log(addItems);
 
-        fetch('http://localhost:5000/items', {
+        fetch('https://macabre-skull-17452.herokuapp.com/items', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
