@@ -15,6 +15,9 @@ const Login = () => {
                 setUser(result.user);
                 history.push(redirect_url);
             })
+            .catch((err) => {
+                console.log(err.message);
+            })
             .finally(() => setIsloading(false))
 
     }
