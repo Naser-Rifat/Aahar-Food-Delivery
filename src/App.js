@@ -1,24 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Pages/Homepage/Header/Header';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import Home from './Pages/Homepage/Home/Home';
+import Footer from './Pages/Homepage/Footer/Footer';
+import Fooditems from './Pages/Homepage/Fooditems/Fooditems';
+import AuthProvider from './Pages/AuthProvider/AuthProvider';
+import Login from './Pages/Login/Login';
+import FoodDetails from './Pages/FoodDetails/FoodDetails';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import Orders from './Pages/Orders/Orders';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/fooditems">
+            <Fooditems></Fooditems>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <PrivateRoute path="/fooddetails/:id">
+            <FoodDetails></FoodDetails>
+          </PrivateRoute>
+          <PrivateRoute path="/orders">
+            <Orders></Orders>
+          </PrivateRoute>
+        </Switch>
+        <Footer></Footer>
+      </Router>
+    </AuthProvider>
   );
 }
 
